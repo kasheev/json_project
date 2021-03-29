@@ -24,9 +24,9 @@ namespace WebApplication.Controllers
             {
                if (res.files[i].result == correct)
                 {
-                    continue;
-               }
-                json += JsonConvert.SerializeObject(res.files[i].filename);
+                    json += JsonConvert.SerializeObject(res.files[i].filename) + ", ";
+                }
+                
             }
             return json;
         }
