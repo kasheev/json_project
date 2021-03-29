@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+ATHvV/DBrHQ2CCjXr37CCEK4EUuuNik7f03y9Qbh6VL/YwCf5y59m4Zrfg43L2Bf21w7udjckFo9r6stKhyDg==",
+  "dgSpecHash": "dYWjshkK6/ZDyCnhUiM3u12HN/gjlNNrRXZRHX4fexYyr2NwuH5VxU01o+/dw9vXLYHx1O/y0JXRpRhlVGa8Zw==",
   "success": true,
   "projectFilePath": "E:\\json_project\\WebApplication\\WebApplication\\WebApplication.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tacti\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
