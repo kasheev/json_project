@@ -13,7 +13,6 @@ namespace WebApplication.Models
         public Parser GetParser() {
 
             var res = JsonConvert.DeserializeObject<Parser>(File.ReadAllText("data.json"));
-            Console.WriteLine(res);
             return res;
         }
     }
