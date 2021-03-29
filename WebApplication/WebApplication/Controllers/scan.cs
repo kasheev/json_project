@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class allData : ControllerBase
+    [ApiController]
+    public class scan : ControllerBase
     {
-        private serialiszer serialiszer = new serialiszer(); 
-        
+        private serialiszer serialiszer = new serialiszer();
+
         [HttpGet]
-        public string all()
+        public string scanInfo()
         {
             var res = serialiszer.GetParser();
-            string json = Newtonsoft.Json.JsonConvert.SerializeObject(res);
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(res.scan);
             return json;
         }
     }
