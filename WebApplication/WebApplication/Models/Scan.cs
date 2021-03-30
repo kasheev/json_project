@@ -11,6 +11,6 @@ namespace WebApplication.Models
         public DateTime scanTime{ get; set;}
         public string db { get; set; }
         public string server { get; set; }
-        public string errorCount { get; set; }
+        public int errorCount { get; set; }
     }
 }

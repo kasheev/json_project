@@ -8,7 +8,7 @@ namespace WebApplication.Models
     public class Errors
     {
         public string module { get; set; }
-        public string ecode { get; set; }
+        public int ecode { get; set; }
         public string error { get; set; }
     }
 }
