@@ -49,5 +49,37 @@ namespace WebApplication.Controllers
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(res.scan.errorCount);
             return json;
         }
+
+        [HttpGet("{index}")]
+        public string indexInf(int index) {
+            var res = serialiszer.GetParser();
+
+            var ErrorDto = new List<ErrorDTO>();
+            int count = res.scan.errorCount;
+            for (int i = 0; i < res.files.Length; i++)
+            {
+                if (res.files[i].result == false)
+                {
+
+                    filenameDto = Newtonsoft.Json.JsonConvert.SerializeObject(res.files[i].filename);
+                    List<string> erDto = new List<string>();
+                    for (int j = 0; j < res.files[i].errors.Length; j++)
+                    {
+                        erDto.Add(res.files[i].errors[j].error);
+                    }
+
+                    ErrorDto.Add(new ErrorDTO() { filename = filenameDto, errors = erDto });
+                }
+
+            }
+
+            var serial = "";
+            for (int i = 0; i < count; i++)
+            {
+                if (index == i) serial = Newtonsoft.Json.JsonConvert.SerializeObject(ErrorDto.ToArray()[i]);
+            }
+           
+            return serial;
+        }
     }
 }
