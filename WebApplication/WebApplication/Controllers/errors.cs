@@ -15,12 +15,32 @@ namespace WebApplication.Controllers
     public class errors : ControllerBase
     {
         private serialiszer serialiszer = new serialiszer();
-        string error = "";
+        string filenameDto;
         [HttpGet]
         public string errosInf() {
             var res = serialiszer.GetParser();
 
-            return error;
+            var ErrorDto = new List<ErrorDTO>();
+
+            for (int i = 0; i < res.files.Length; i++)
+            {
+                if (res.files[i].result == false)
+                {
+
+
+                    filenameDto = Newtonsoft.Json.JsonConvert.SerializeObject(res.files[i].filename);
+                    List<string> erDto = new List<string>();
+                    for (int j = 0; j < res.files[i].errors.Length; j++) {
+                        erDto.Add(res.files[i].errors[j].error);
+                    }
+
+                    ErrorDto.Add(new ErrorDTO() { filename = filenameDto, errors = erDto });
+                }
+
+            }
+
+            var serial = Newtonsoft.Json.JsonConvert.SerializeObject(ErrorDto);
+            return serial;
         }
 
         [HttpGet("count")]
